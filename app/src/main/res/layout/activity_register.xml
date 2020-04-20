@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+
+
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Owner Name" />
+        <EditText
+            android:id="@+id/input_store_name"
+            android:layout_width="match_parent"
+
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Medical Store Name" ></EditText>
+        <EditText
+            android:id="@+id/input_tin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="DL Number" />
+        <EditText
+            android:id="@+id/input_gst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="GST Number" />
+
+        <EditText
+            android:id="@+id/input_addr"
+            android:layout_width="match_parent"
+
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content"
+            android:hint="Store Address" />
+        <EditText
+            android:id="@+id/input_ph1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Mobile Number" />
+        <EditText
+            android:id="@+id/input_ph2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="WhatsApp Number" />
+        <EditText
+            android:id="@+id/input_more"
+            android:layout_width="match_parent"
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content"
+            android:hint="Additional Information (Optional)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <Button android:id="@+id/btn_logout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:onClick="logoutreg" />
+            <Button android:id="@+id/btn_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:onClick="startsetup" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

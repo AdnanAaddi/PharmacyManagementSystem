@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "554301149356",
+    "firebase_url": "https://farmaco-d6f25.firebaseio.com",
+    "project_id": "farmaco-d6f25",
+    "storage_bucket": "farmaco-d6f25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554301149356:android:c95c9383855d565b800f09",
+        "android_client_info": {
+          "package_name": "com.example.pharmacymanagementsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554301149356-4of2fei28ufq8jfpgv8nip5jdoitv557.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pharmacymanagementsystem",
+            "certificate_hash": "e0794ae40f623e4b33f8f7dee1e6322ef8d5bd5d"
+          }
+        },
+        {
+          "client_id": "554301149356-ssjql6dam8u73fqq2btmitr7huqqsbur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjWYDeQ12iIIh7-2ftmyxi5Du1KYgSTJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554301149356-ssjql6dam8u73fqq2btmitr7huqqsbur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
