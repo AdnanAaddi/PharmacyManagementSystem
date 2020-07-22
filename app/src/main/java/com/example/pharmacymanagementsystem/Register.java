@@ -53,9 +53,33 @@ public class Register extends AppCompatActivity {
         int flag = 0;
         if (ename.getText().toString().trim().isEmpty()) {
             flag = 1;
-            Toast.makeText(this, "Can not be empty", Toast.LENGTH_SHORT).show();
         }
-        return true;
+
+        if (etin.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+
+        if (eaddr.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (eph1.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (eph2.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (emore.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (egst.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+
+        if (flag == 1){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     public void startsetup(View view) {
@@ -79,7 +103,7 @@ public class Register extends AppCompatActivity {
             du.child(uid).child("info").child("gst").setValue(sgst);
 
             Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
             SimpleDateFormat fm = new SimpleDateFormat("HH:mm");
             du.child(uid).child("Log").child("log").setValue(
                     format.format(calendar.getTime()) + "\n[" + fm.format(calendar.getTime()) + "] Account Created");
@@ -87,6 +111,9 @@ public class Register extends AppCompatActivity {
             Intent i = new Intent(this, HomeActivity.class);
             finish();
             startActivity(i);
+        }
+        else {
+                Toast.makeText(this, "Please Fill all the fields", Toast.LENGTH_SHORT).show();
         }
 
     }

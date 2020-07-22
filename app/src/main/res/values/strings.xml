@@ -18,4 +18,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_string">Pharmacy Management System is a Medical Store inventory App.Users of
+        App are only medical store owners or any pharmacy owner using to store their sale and stock details.
+        App owner have to login with valid Email Id.Users will be able to view the records of regular
+        customers.Records of customers will be updated regularly.Pharmacy Owners can make transactions
+        and view the history of transactions and make the Invoice details of your medicines!
+    </string>
 </resources>

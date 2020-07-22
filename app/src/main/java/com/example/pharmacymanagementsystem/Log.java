@@ -1,10 +1,9 @@
 package com.example.pharmacymanagementsystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -16,41 +15,45 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
-public class CustomerLog extends AppCompatActivity {
+public class Log extends AppCompatActivity {
+
     String uid;
     DatabaseReference db;
     private FirebaseAuth mAuth;
     TextView t;
+    ValueEventListener v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_log);
-        Intent i = getIntent();
-        String k = i.getStringExtra("k");
+        setContentView(R.layout.activity_log);
         t = (TextView) findViewById(R.id.textView);
         mAuth = FirebaseAuth.getInstance();
         uid = mAuth.getCurrentUser().getUid();
-        db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Customer").child("Person")
-                .child(k);
+        db = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Log");
         db.keepSynced(true);
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
+        v = new ValueEventListener() {
             @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<Map<String, String>> genericTypeIndicator = new GenericTypeIndicator<Map<String, String>>() {
                 };
                 final Map<String, String> map = dataSnapshot.getValue(genericTypeIndicator);
-                setTitle(map.get("einame"));
-
+                setTitle("Log");
                 t.setText(map.get("log"));
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(DatabaseError databaseError) {
+
             }
+        };
+        db.addValueEventListener(v);
 
-        });
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        db.removeEventListener(v);
     }
 }

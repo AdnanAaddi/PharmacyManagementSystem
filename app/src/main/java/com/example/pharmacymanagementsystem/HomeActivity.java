@@ -11,7 +11,7 @@ import com.example.pharmacymanagementsystem.fragments.HomeFragment;
 import com.example.pharmacymanagementsystem.fragments.customers;
 import com.example.pharmacymanagementsystem.fragments.items;
 import com.example.pharmacymanagementsystem.fragments.summary;
-import com.example.pharmacymanagementsystem.fragments.transactions;
+import com.example.pharmacymanagementsystem.fragments.transactions_history;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -201,7 +201,7 @@ public class HomeActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content_frame, new HomeFragment()).commit();
         } else if (id == R.id.nav_transaction) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new transactions()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new transactions_history()).commit();
         } else if (id == R.id.nav_customers) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, new customers()).commit();
@@ -223,7 +223,7 @@ public class HomeActivity extends AppCompatActivity
     public void homebtn(View view) {
         int id = view.getId();
         if (R.id.btnnewt == id) {
-            Intent i = new Intent(this, transactions.class);
+            Intent i = new Intent(this, TestActivity.class);
             startActivity(i);
         } else if (R.id.btncust == id) {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -231,12 +231,19 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (R.id.btntrans == id) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new transactions()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new transactions_history()).commit();
 
         } else if (R.id.btninventory == id) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, new items()).commit();
 
         }
+    }
+    public void logout(View view) {
+        signOut();
+    }
+    public void updatei(View view) {
+        Intent i = new Intent(this, UpdateInfo.class);
+        startActivity(i);
     }
 }

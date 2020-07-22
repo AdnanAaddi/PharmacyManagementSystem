@@ -37,7 +37,7 @@ import java.util.Comparator;
 
 import static com.example.pharmacymanagementsystem.HomeActivity.fab;
 
-public class customers extends Fragment implements SearchView.OnQueryTextListener {
+public class customers extends Fragment {
     View v;
     String uid;
     private DatabaseReference db;
@@ -56,7 +56,7 @@ public class customers extends Fragment implements SearchView.OnQueryTextListene
         HomeActivity.flag = 1;
         setHasOptionsMenu(true);
 
-        // INITIALIZE RV
+        // INITILIZE RECYCLERVIEW
         rv = (RecyclerView) v.findViewById(R.id.rv);
         rv.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
@@ -98,70 +98,54 @@ public class customers extends Fragment implements SearchView.OnQueryTextListene
         // menu.findItem(R.id.order_transdate).setVisible(false);
         menu.findItem(R.id.order_due).setVisible(true);
         inflater.inflate(R.menu.search_bar, menu);
-        final MenuItem searchitem = menu.findItem(R.id.search);
-//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchitem);
-//        searchView.setOnQueryTextListener(this);
-//        MenuItemCompat.setOnActionExpandListener(searchitem, new MenuItemCompat.OnActionExpandListener() {
-//            @Override
-//            public boolean onMenuItemActionCollapse(MenuItem item) {
-//                menu.findItem(R.id.order_due).setVisible(true);
-//                return true;
-//            }
-//
-//            @Override
-//            public boolean onMenuItemActionExpand(MenuItem item) {
-//                menu.findItem(R.id.order_due).setVisible(false);
-//                return true;
-//            }
-//        });
-        super.onCreateOptionsMenu(menu, inflater);
+        MenuItem menuItem=menu.findItem(R.id.search);
+        SearchView searchView= (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-//        int id = item.getItemId();
-//        if (id == R.id.order_due) {
-//            if (!item.isChecked()) {
-//                if (models.size() > 0) {
-//                    Collections.sort(models, new Comparator<ModelCustomer>() {
-//                        @Override
-//                        public int compare(ModelCustomer p1, ModelCustomer p2) {
-//                            return Double.compare(Double.parseDouble(p2.getEmoney()),
-//                                    Double.parseDouble(p1.getEmoney()));
-//                        }
-//                    });
-//                }
-//                order = true;
-//                item.setChecked(true);
-//                adapter.notifyDataSetChanged();
-//            } else {
-//                if (models.size() > 0) {
-//                    Collections.sort(models, new Comparator<ModelCustomer>() {
-//                        @Override
-//                        public int compare(final Modelcustomer object1, final Modelcustomer object2) {
-//                            return object1.getEiname().compareTo(object2.getEiname());
-//                        }
-//                    });
-//                }
-//                order = false;
-//                item.setChecked(false);
-//                adapter.notifyDataSetChanged();
-//            }
-//        }
+        int id = item.getItemId();
+        if (id == R.id.order_due) {
+            if (!item.isChecked()) {
+                if (models.size() > 0) {
+                    Collections.sort(models, new Comparator<ModelCustomer>() {
+                        @Override
+                        public int compare(ModelCustomer p1, ModelCustomer p2) {
+                            return Double.compare(Double.parseDouble(p2.getEmoney()),
+                                    Double.parseDouble(p1.getEmoney()));
+                        }
+                    });
+                }
+                order = true;
+                item.setChecked(true);
+                adapter.notifyDataSetChanged();
+            } else {
+                if (models.size() > 0) {
+                    Collections.sort(models, new Comparator<ModelCustomer>() {
+                        @Override
+                        public int compare(final ModelCustomer object1, final ModelCustomer object2) {
+                            return object1.getEiname().compareTo(object2.getEiname());
+                        }
+                    });
+                }
+                order = false;
+                item.setChecked(false);
+                adapter.notifyDataSetChanged();
+            }
+        }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-//
-//        adapter.getFilter().filter(newText);
-        return false;
     }
 
     // IMPLEMENT FETCH DATA AND FILL ARRAYLIST

@@ -1,0 +1,134 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+                <EditText
+                    android:id="@+id/nameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+
+                    android:hint="Item Name"
+
+                    android:inputType="textCapSentences"/>
+                <EditText
+                    android:id="@+id/codeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:hint="Item Code"
+                    android:inputType="text"/>
+                <EditText
+                    android:id="@+id/cNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:hint="Company Name" />
+                <EditText
+                    android:id="@+id/batchText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+
+                    android:inputType="textCapSentences"
+                    android:hint="Batch Number" />
+
+                <EditText
+                    android:id="@+id/qtyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:hint="Quantity"/>
+
+                <EditText
+                    android:id="@+id/unitText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:hint="Unit"/>
+
+                <EditText
+                    android:id="@+id/expText"
+                    android:layout_width="match_parent"
+
+                    android:maxLines="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Expiry Date" />
+                <EditText
+                    android:id="@+id/mrpText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:maxLines="1"
+                    android:inputType="numberDecimal"
+                    android:hint="MRP" />
+                <EditText
+                    android:id="@+id/cpText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:hint="Cost Price"
+                    android:inputType="numberDecimal"/>
+                <EditText
+                    android:id="@+id/spText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="numberDecimal"
+                    android:hint="Selling Price" />
+                <EditText
+                    android:id="@+id/descText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="textCapSentences"
+                    android:hint="Description (Optional)" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+                <Button android:id="@+id/btn_clear"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CLEAR"
+                    android:layout_weight="1"
+                    android:background="?attr/colorPrimary"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/white"
+                    android:onClick="clear" />
+
+                <Button android:id="@+id/btn_add"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ADD"
+                    android:layout_weight="1"
+                    android:background="?attr/colorPrimary"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/white"
+                    android:onClick="addInfo"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

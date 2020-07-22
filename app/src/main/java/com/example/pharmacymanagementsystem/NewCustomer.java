@@ -46,7 +46,7 @@ public class NewCustomer extends AppCompatActivity  implements View.OnClickListe
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         edate.setText(format.format(c.getTime()));
 
-        ebalance.setFilters(new InputFilter[] { new DecimalDigitsInputFilter(2) });
+        //ebalance.setFilters(new InputFilter[] { new DecimalDigitsInputFilter(2) });
 
         edate.setInputType(InputType.TYPE_NULL);
         edate.setFocusable(false);
@@ -100,13 +100,40 @@ public class NewCustomer extends AppCompatActivity  implements View.OnClickListe
 
             Toast.makeText(this, "Customer is saved", Toast.LENGTH_SHORT).show();
             m_clear();
-        } else {
-            Toast.makeText(this, "Sorry.. Try Again", Toast.LENGTH_SHORT).show();
+        } else
+            {
+            Toast.makeText(this, "Please Fill all the fields", Toast.LENGTH_SHORT).show();
         }
     }
 
     public boolean validate() {
+        int flag = 0;
+        if (eName.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+
+        if (eaddr.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+
+        if (eaddr.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (ephone.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (ebalance.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+        if (edate.getText().toString().trim().isEmpty()) {
+            flag = 1;
+        }
+
+        if (flag == 1){
+            return false;
+        }else {
             return true;
+        }
     }
 
     public void clear(View v) {

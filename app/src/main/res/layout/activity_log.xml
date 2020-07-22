@@ -4,8 +4,7 @@
     android:id="@+id/activity_customer_log"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    >
+    android:padding="10dp">
 
     <TextView
         android:text="TextView"

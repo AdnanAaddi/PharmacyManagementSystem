@@ -6,12 +6,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/pharmacoicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/pharmacoicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomerLog"></activity>
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Bill" />
+        <activity android:name=".AddItems" />
+        <activity android:name=".CustomerLog" />
+        <activity android:name=".Log" />
+        <activity android:name=".SampleBill" />
         <activity android:name=".NewCustomer" />
         <activity android:name=".UpdateCustomers" />
         <activity android:name=".UpdateInfo" />
